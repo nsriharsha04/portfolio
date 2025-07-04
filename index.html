@@ -7,178 +7,102 @@
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
 
-    <style>
-      :root {
-        --bg: #ffffff;
-        --text: #333333;
-        --primary: #007bff;
-        --secondary: #6c757d;
-        --light-gray: #f8f9fa;
-        --border-color: #e9ecef;
-        --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        --border-radius: 8px;
-      }
-      * {box-sizing: border-box;margin:0;padding:0;}
-      body {
-        font-family: 'Inter', sans-serif;
-        background: var(--light-gray);
-        color: var(--text);
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      /* Header */
-      header {
-        background: var(--bg);
-        padding: 1rem 1.5rem;
-        border-bottom: 1px solid var(--border-color);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: var(--shadow);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      }
-      header h1 {font-size:1.5rem;font-weight:700;color:var(--primary);}
-      nav a {margin-left:1.5rem;color:var(--secondary);text-decoration:none;font-weight:500;transition:color 0.3s ease;}
-      nav a:hover {color:var(--primary);}  
-      /* Generic Section */
-      section {
-        max-width: 960px;
-        margin: 3rem auto;
-        padding: 2rem 1.5rem;
-        background: var(--bg);
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-      }
-      section:first-of-type {padding-top:4rem;}
-      h2 {font-size:2rem;color:var(--primary);margin-bottom:1.5rem;text-align:center;}
-      /* Hero */
-      .hero {display:flex;flex-direction:column;align-items:center;text-align:center;}
-      .headshot {width:150px;height:150px;border-radius:50%;object-fit:cover;margin-bottom:1.5rem;border:3px solid var(--primary);box-shadow:0 0 15px rgba(0,123,255,0.3);}  
-      .hero h2 {font-size:2.6rem;font-weight:800;margin-bottom:0.75rem;color:var(--text);}  
-      .hero p {font-size:1.1rem;max-width:700px;color:var(--secondary);margin-bottom:2rem;}  
-      .btn {display:inline-block;background:var(--primary);color:#fff;padding:0.75rem 1.8rem;border-radius:var(--border-radius);font-weight:600;text-decoration:none;transition:background 0.3s ease,transform 0.2s ease;box-shadow:0 4px 8px rgba(0,123,255,0.2);}  
-      .btn:hover {background:#0056b3;transform:translateY(-2px);}  
-      /* Card Grid */
-      .card-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;padding-top:1rem;}
-      .card {background:var(--light-gray);padding:1.5rem;border-radius:var(--border-radius);box-shadow:var(--shadow);border:1px solid var(--border-color);transition:transform 0.2s ease,box-shadow 0.2s ease;}
-      .card:hover {transform:translateY(-5px);box-shadow:0 8px 16px rgba(0,0,0,0.1);}  
-      .card h3 {font-size:1.25rem;color:var(--primary);margin-bottom:0.5rem;}  
-      .card p {font-size:0.95rem;color:var(--secondary);margin-bottom:1rem;}
-      .tag-container {display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem;}
-      .tag {background:#e0f2f7;color:var(--primary);padding:0.3rem 0.7rem;border-radius:4px;font-size:0.8rem;font-weight:500;border:1px solid #b3e0ff;white-space:nowrap;}  
-      /* Timeline */
-      .timeline {position:relative;padding-left:25px;margin-top:2rem;}
-      .timeline::before {content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background-color:var(--border-color);}  
-      .timeline-item {margin-bottom:2rem;position:relative;}
-      .timeline-item::before {content:'';position:absolute;left:-17px;top:5px;width:12px;height:12px;background-color:var(--primary);border-radius:50%;border:2px solid var(--bg);}  
-      .timeline-item h4 {font-size:1.1rem;color:var(--text);margin-bottom:0.25rem;}
-      .timeline-item span {font-size:0.9rem;color:var(--secondary);}  
-      /* Certifications */
-      .cert-list {list-style:none;padding-left:0;margin-top:1.5rem;}
-      .cert-list li {margin-bottom:0.8rem;position:relative;padding-left:25px;color:var(--text);}  
-      .cert-list li::before {content:'✓';color:var(--primary);position:absolute;left:0;font-weight:bold;}  
-      /* Social */
-      .social-links {display:flex;justify-content:center;margin-top:2rem;}
-      .social-links a {font-size:2.2rem;margin:0 1rem;color:var(--secondary);transition:color 0.3s ease,transform 0.2s ease;}
-      .social-links a:hover {color:var(--primary);transform:translateY(-3px);}  
-      /* Footer */
-      footer {text-align:center;padding:2rem 1rem;font-size:0.85rem;color:var(--secondary);border-top:1px solid var(--border-color);margin-top:3rem;}  
-      /* Responsive */
-      @media(max-width:768px){header{flex-direction:column;padding:1rem;}nav{margin-top:1rem;}nav a{margin:0 0.8rem;}section{margin:2rem auto;padding:1.5rem;} .hero h2{font-size:2.2rem;}}
-      @media(max-width:480px){.hero h2{font-size:1.8rem;}.btn{padding:0.6rem 1.5rem;}.social-links a{font-size:1.8rem;margin:0 0.8rem;}}
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/style.css" />
   </head>
   <body>
     <!-- Header -->
     <header>
-      <h1>Sriharsha N</h1>
-      <nav>
-        <a href="#projects">Projects</a>
-        <a href="#github">GitHub</a>
-        <a href="#experience">Experience</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="container">
+        <h1>SN</h1>
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
     </header>
 
     <!-- Hero -->
     <section class="hero" id="home">
-      <!-- GitHub avatar -->
-      <img src="https://avatars.githubusercontent.com/nsriharsha04?size=300" alt="Headshot" class="headshot" />
-      <h2>Sriharsha N</h2>
-      <p>
-        A passionate and innovation-driven software engineer with a strong foundation in building scalable, end-to-end solutions across web, cloud, and AI domains. Experienced in delivering impactful projects using Java Full-Stack technologies, AWS, and DevOps practices. Recently contributed to multiple AI-powered products using Google Cloud Platform (GCP), Vertex AI, and OpenAI APIs, enabling real-time chatbots, speech-to-text systems, and intelligent dashboards. Actively building and scaling AI-first products for startups, with a focus on automation, user experience, and cloud-native performance. Always exploring new challenges that blend technology with impact.
-      </p>
-      <div class="hero-buttons">
-        <a class="btn" href="https://github.com/nsriharsha04" target="_blank" rel="noopener">Explore on GitHub</a>
-        <!-- Replace path if you upload resume -->
-        <!-- <a class="btn" href="resume/resume.pdf" target="_blank" rel="noopener">View Resume</a> -->
+      <div class="hero-content">
+        <img src="https://avatars.githubusercontent.com/nsriharsha04?size=300" alt="Headshot" class="headshot" />
+        <h2>Sriharsha N</h2>
+        <p>
+          A passionate and innovation-driven software engineer with a strong foundation in building scalable, end-to-end solutions across web, cloud, and AI domains. Experienced in delivering impactful projects using Java Full-Stack technologies, AWS, and DevOps practices. Recently contributed to multiple AI-powered products using Google Cloud Platform (GCP), Vertex AI, and OpenAI APIs, enabling real-time chatbots, speech-to-text systems, and intelligent dashboards. Actively building and scaling AI-first products for startups, with a focus on automation, user experience, and cloud-native performance. Always exploring new challenges that blend technology with impact.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn" href="https://github.com/nsriharsha04" target="_blank" rel="noopener">Explore on GitHub</a>
+          <!-- Uncomment and replace path if you upload resume -->
+          <!-- <a class="btn" href="resume/resume.pdf" target="_blank" rel="noopener">View Resume</a> -->
+        </div>
       </div>
     </section>
 
     <!-- Featured Projects (hand‑picked) -->
     <section id="projects">
-      <h2>Featured Projects</h2>
-      <div class="card-grid">
-        <!-- <div class="card">
-          <h3>ATAMO – GenAI Assistant</h3>
-          <p>Vertex AI‑powered copilot that converts natural‑language banking queries to orchestrated calls, retrieving sensitive EQH data with full audit trail. Reduced analyst lookup time by 70%.</p>
-          <div class="tag-container">
-            <span class="tag">GCP</span>
-            <span class="tag">Vertex AI</span>
-            <span class="tag">Python</span>
+      <div class="container">
+        <h2>Featured Projects</h2>
+        <div class="card-grid">
+          <!-- <div class="card">
+            <h3>ATAMO – GenAI Assistant</h3>
+            <p>Vertex AI‑powered copilot that converts natural‑language banking queries to orchestrated calls, retrieving sensitive EQH data with full audit trail. Reduced analyst lookup time by 70%.</p>
+            <div class="tag-container">
+              <span class="tag">GCP</span>
+              <span class="tag">Vertex AI</span>
+              <span class="tag">Python</span>
+            </div>
+          </div> -->
+          <div class="card">
+            <h3>AgentSpace</h3>
+            <p>LLM + BigQuery agent that maps free‑text questions to SQL, surfacing enterprise data catalog entries in seconds. Hackathon24 🥈 &amp; People’s Choice.</p>
+            <div class="tag-container">
+              <span class="tag">LLM</span>
+              <span class="tag">BigQuery</span>
+              <span class="tag">Text‑to‑SQL</span>
+            </div>
           </div>
-        </div> -->
-        <div class="card">
-          <h3>AgentSpace</h3>
-          <p>LLM + BigQuery agent that maps free‑text questions to SQL, surfacing enterprise data catalog entries in seconds. Hackathon24 🥈 &amp; People’s Choice.</p>
-          <div class="tag-container">
-            <span class="tag">LLM</span>
-            <span class="tag">BigQuery</span>
-            <span class="tag">Text‑to‑SQL</span>
+          <!-- <div class="card">
+            <h3>TAP → GCP Migration</h3>
+            <p>Architected Bigtable schema &amp; Vertex AI reconciliation agents for 4 TB/day core‑banking streams.</p>
+            <div class="tag-container">
+              <span class="tag">Bigtable</span>
+              <span class="tag">Data Modeling</span>
+              <span class="tag">MLOps</span>
+            </div>
+          </div> -->
+          <div class="card">
+            <h3>StockAIvisor</h3>
+            <p>StockAivisor is a cutting-edge analytics platform designed to empower investors with AI-driven insights and tools for smarter decision-making in the stock.</p>
+            <div class="tag-container">
+              <span class="tag">LangChain</span>
+              <span class="tag">Pinecone</span>
+              <span class="tag">RAG</span>
+            </div>
           </div>
-        </div>
-        <!-- <div class="card">
-          <h3>TAP → GCP Migration</h3>
-          <p>Architected Bigtable schema &amp; Vertex AI reconciliation agents for 4 TB/day core‑banking streams.</p>
-          <div class="tag-container">
-            <span class="tag">Bigtable</span>
-            <span class="tag">Data Modeling</span>
-            <span class="tag">MLOps</span>
+          <div class="card">
+            <h3>Leverbot</h3>
+            <p>GenAI FAQ chat widget for SaaS onboarding</p>
+            <div class="tag-container">
+              <span class="tag">OpenAI</span>
+              <span class="tag">Postgres</span>
+              <span class="tag">React</span>
+            </div>
           </div>
-        </div> -->
-        <div class="card">
-          <h3>StockAIvisor</h3>
-          <p>Retrieval‑augmented bot over SEC filings; delivers context‑grounded answers with citations.</p>
-          <div class="tag-container">
-            <span class="tag">LangChain</span>
-            <span class="tag">Pinecone</span>
-            <span class="tag">RAG</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Leverbot</h3>
-          <p>GenAI FAQ chat widget for SaaS onboarding; built with OpenAI GPT, Postgres &amp; Supabase.</p>
-          <div class="tag-container">
-            <span class="tag">OpenAI</span>
-            <span class="tag">Supabase</span>
-            <span class="tag">React</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>VakhyaT</h3>
-          <p>Multimodal speech‑to‑text + chat app powered by Whisper, Django Channels, and WebSockets.</p>
-          <div class="tag-container">
-            <span class="tag">Whisper</span>
-            <span class="tag">Django</span>
-            <span class="tag">WebSockets</span>
+          <div class="card">
+            <h3>VakhyaT</h3>
+            <p>Multimodal speech‑to‑text + chat app powered by Whisper, Django Channels, and WebSockets.</p>
+            <div class="tag-container">
+              <span class="tag">Whisper</span>
+              <span class="tag">Django</span>
+              <span class="tag">WebSockets</span>
+            </div>
           </div>
         </div>
       </div>
@@ -186,61 +110,139 @@
 
     <!-- GitHub Repositories (live) -->
     <section id="github">
-      <h2>Latest GitHub Repos</h2>
-      <div id="repo-grid" class="card-grid"></div>
+      <div class="container">
+        <h2>Latest GitHub Repos</h2>
+        <div id="repo-grid" class="card-grid"></div>
+      </div>
     </section>
 
     <!-- Experience -->
     <section id="experience">
-      <h2>Experience</h2>
-      <div class="timeline">
-        <div class="timeline-item"><h4>IS Technical Specialist – Huntington National Bank</h4><span>Oct 2023 – Present · Ohio, USA</span></div>
-        <!-- <div class="timeline-item"><h4>Software Engineer – Huntington National Bank</h4><span>Oct 2023 – Jan 2024 · Ohio, USA</span></div> -->
-        <!-- <div class="timeline-item"><h4>Software Engineer – SV Technology Services</h4><span>Oct 2023 – Jan 2024 · Texas, USA</span></div> -->
-        <div class="timeline-item"><h4>Teaching Assistant – UMBC</h4><span>Aug 2023 – Dec 2023 · Maryland, USA</span></div>
-        <div class="timeline-item"><h4>Engineer I – American Express</h4><span>Mar 2022 – Aug 2022 · Remote</span></div>
-        <div class="timeline-item"><h4>Senior Software Engineer – IBM</h4><span>Apr 2021 – Feb 2022 · Remote</span></div>
-        <div class="timeline-item"><h4>Contractor – The Hartford</h4><span>Nov 2017 – Apr 2021 · Connecticut, USA</span></div>
-        <div class="timeline-item"><h4>Software Engineer – Accenture India</h4><span>Jun 2017 – Apr 2021 · Pune, India</span></div>
+      <div class="container">
+        <h2>Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <img src="static/img/huntington_logo.png" alt="Huntington National Bank" class="company-logo">
+            <div>
+              <h4>IS Technical Specialist – Huntington National Bank</h4>
+              <span>Oct 2023 – Present · Ohio, USA</span>
+            </div>
+          </div>
+          <!-- <div class="timeline-item"><h4>Software Engineer – Huntington National Bank</h4><span>Oct 2023 – Jan 2024 · Ohio, USA</span></div> -->
+          <!-- <div class="timeline-item"><h4>Software Engineer – SV Technology Services</h4><span>Oct 2023 – Jan 2024 · Texas, USA</span></div> -->
+          <div class="timeline-item">
+            <img src="static/img/university_of_maryland_baltimore_county_logo.jpeg" alt="UMBC" class="company-logo">
+            <div>
+              <h4>Teaching Assistant – UMBC</h4>
+              <span>Aug 2023 – Dec 2023 · Maryland, USA</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <img src="static/img/american_express_logo.jpeg" alt="American Express" class="company-logo">
+            <div>
+              <h4>Engineer I – American Express</h4>
+              <span>Mar 2022 – Aug 2022 · Remote</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <img src="static/img/ibm_logo.jpeg" alt="IBM" class="company-logo">
+            <div>
+              <h4>Senior Software Engineer – IBM</h4>
+              <span>Apr 2021 – Feb 2022 · Remote</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <img src="static/img/the_hartford_logo.jpeg" alt="The Hartford" class="company-logo">
+            <div>
+              <h4>Contractor – The Hartford</h4>
+              <span>Nov 2017 – Apr 2021 · Connecticut, USA</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <img src="static/img/accentureindia_logo.jpeg" alt="Accenture India" class="company-logo">
+            <div>
+              <h4>Software Engineer – Accenture India</h4>
+              <span>Jun 2017 – Apr 2021 · Pune, India</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Certifications -->
     <section id="certifications">
-      <h2>Certifications</h2>
-      <ul class="cert-list">
-        <li><strong>Professional Cloud Architect (Google)</strong> · May 2025 – Jul 2027</li>
-        <li><strong>Associate Cloud Engineer (Google)</strong> · Jul 2024 – Jul 2027</li>
-        <li><strong>Azure AI Fundamentals (Microsoft)</strong> · Nov 2022 – no expiry</li>
-        <li><strong>AWS Solutions Architect – Associate</strong> · Aug 2023 – Aug 2026</li>
-        <li><strong>AWS Developer – Associate</strong> · Aug 2020 – Aug 2023</li>
-        <li><strong>AWS Cloud Practitioner</strong> · Nov 2021 – Nov 2024</li>
-      </ul>
+      <div class="container">
+        <h2>Certifications</h2>
+        <ul class="cert-list">
+          <li>
+            <div class="cert-item">
+              <img src="static/img/google Professional Cloud Architect Certification logo.png" alt="Google Professional Cloud Architect" class="cert-logo">
+              <strong>Professional Cloud Architect (Google)</strong>
+            </div>
+          </li>
+          <li>
+            <div class="cert-item">
+              <img src="static/img/Associate Cloud Engineer Certification logo.png" alt="Google Associate Cloud Engineer" class="cert-logo">
+              <strong>Associate Cloud Engineer (Google)</strong>
+            </div>
+          </li>
+          <!-- <li><strong>Azure AI Fundamentals (Microsoft)</strong> · Nov 2022 – no expiry</li> -->
+          <li>
+            <div class="cert-item">
+              <img src="static/img/AWS Certified Solutions Architect – Associate logo.png" alt="AWS Solutions Architect Associate" class="cert-logo">
+              <strong>AWS Solutions Architect – Associate</strong>
+            </div>
+          </li>
+          <li>
+            <div class="cert-item">
+              <img src="static/img/AWS Certified Developer – Associate logo.png" alt="AWS Certified Developer Associate" class="cert-logo">
+              <strong>AWS Developer – Associate</strong>
+            </div>
+          </li>
+          <li>
+            <div class="cert-item">
+              <img src="static/img/aws_cloud_practitional_logo.png" alt="AWS Cloud Practitioner" class="cert-logo">
+              <strong>AWS Cloud Practitioner</strong>
+            </div>
+          </li>
+        </ul>
+      </div>
     </section>
 
     <!-- Blog -->
     <section id="blog">
-      <h2>Latest Blog Posts</h2>
-      <div class="card-grid">
-        <div class="card"><h3>Architecting Multi‑Agent Gen AI Systems</h3><p>Design patterns & guardrails for deploying LLM agents in regulated enterprises.</p><a class="btn" href="https://medium.com/@nsriharsha12/architecting-multi-agent-generative-ai-systems-in-regulated-enterprises-design-patterns-a9e03633f6b8" target="_blank" rel="noopener">Read</a></div>
-        <div class="card"><h3>Generative AI in Finance</h3><p>How LLMs + RAG reshape portfolio insights and risk management, with code samples.</p><a class="btn" href="https://medium.com/@nsriharsha12/generative-ai-in-finance-leveraging-llms-and-rag-to-enhance-financial-decision-making-a42f450b092f" target="_blank" rel="noopener">Read</a></div>
-        <div class="card"><h3>Stock‑Market Analysis with ARIMA</h3><p>Time‑series deep‑dive on NASDAQ and S&amp;P 500, decomposing trends & ARIMA forecasting.</p><a class="btn" href="https://medium.com/@nsriharsha12/stock-market-analysis-using-arima-a-case-study-of-nasdaq-and-s-p-500-indexes-part-1-9532c09fcfb2" target="_blank" rel="noopener">Read</a></div>
+      <div class="container">
+        <h2>Latest Blog Posts</h2>
+        <div class="card-grid">
+          <div class="card"><h3>Architecting Multi‑Agent Gen AI Systems</h3><p>Design patterns & guardrails for deploying LLM agents in regulated enterprises.</p><a class="btn" href="https://medium.com/@nsriharsha12/architecting-multi-agent-generative-ai-systems-in-regulated-enterprises-design-patterns-a9e03633f6b8" target="_blank" rel="noopener">Read</a></div>
+          <div class="card"><h3>Generative AI in Finance</h3><p>How LLMs + RAG reshape portfolio insights and risk management, with code samples.</p><a class="btn" href="https://medium.com/@nsriharsha12/generative-ai-in-finance-leveraging-llms-and-rag-to-enhance-financial-decision-making-a42f450b092f" target="_blank" rel="noopener">Read</a></div>
+          <div class="card"><h3>Stock‑Market Analysis with ARIMA</h3><p>Time‑series deep‑dive on NASDAQ and S&amp;P 500, decomposing trends & ARIMA forecasting.</p><a class="btn" href="https://medium.com/@nsriharsha12/stock-market-analysis-using-arima-a-case-study-of-nasdaq-and-s-p-500-indexes-part-1-9532c09fcfb2" target="_blank" rel="noopener">Read</a></div>
+        </div>
       </div>
     </section>
 
     <!-- Contact -->
     <section id="contact">
-      <h2>Get in Touch</h2>
-      <p>Open to collaboration, speaking engagements, and innovative AI challenges.</p>
-      <div class="social-links">
-        <a href="https://github.com/nsriharsha04" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/sriharsha-n" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://medium.com/@nsriharsha12" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
-        <a href="mailto:nsriharsha12@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <div class="container">
+        <h2>Get in Touch</h2>
+        <p>Open to collaboration, speaking engagements, and innovative AI challenges.</p>
+        <div class="social-links">
+          <a href="https://github.com/nsriharsha04" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/sriharsha-n" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://medium.com/@nsriharsha12" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
+          <a href="mailto:sri.nharsha004@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
       </div>
     </section>
 
-    <footer>© 2025 Sriharsha N — Built with ❤️ and hosted on GitHub Pages.</footer>
+    <footer>
+      <div class="container">
+        © 2025 Sriharsha N — Built with ❤️ and hosted on GitHub Pages.
+        <br>
+        <br>
+        <img src="https://komarev.com/ghpvc/?username=nsriharsha04&color=blue" alt="Visitors Count">
+      </div>
+    </footer>
 
     <!-- Scripts -->
     <script>

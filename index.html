@@ -14,7 +14,7 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://nsriharsha04.github.io/portfolio/" />
-    <meta property="og:image" content="https://avatars.githubusercontent.com/nsriharsha04?size=600" />
+    <meta property="og:image" content="https://nsriharsha04.github.io/portfolio/static/img/ai-cloud-profile.png" />
     <link rel="canonical" href="https://nsriharsha04.github.io/portfolio/" />
     <title>Sriharsha Nemalikonda | AI and Cloud Engineer</title>
 
@@ -29,6 +29,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       referrerpolicy="no-referrer"
     />
+    <script>
+      const savedTheme = localStorage.getItem("theme");
+      const systemPrefersDay = window.matchMedia("(prefers-color-scheme: light)").matches;
+      document.documentElement.dataset.theme = savedTheme || (systemPrefersDay ? "day" : "night");
+    </script>
     <link rel="stylesheet" href="static/css/style.css" />
   </head>
   <body>
@@ -43,6 +48,9 @@
           <a href="#writing">Writing</a>
           <a href="#contact">Contact</a>
         </nav>
+        <button class="theme-toggle" type="button" aria-label="Switch to day theme" aria-pressed="false">
+          <i class="fa-solid fa-sun" aria-hidden="true"></i>
+        </button>
       </div>
     </header>
 
@@ -68,8 +76,8 @@
           </div>
           <aside class="profile-panel" aria-label="Profile highlights">
             <img
-              src="https://avatars.githubusercontent.com/nsriharsha04?size=360"
-              alt="Sriharsha Nemalikonda"
+              src="static/img/ai-cloud-profile.png"
+              alt="AI and cloud engineering profile visual"
               class="headshot"
             />
             <div class="stats" aria-label="Career highlights">
@@ -511,5 +519,25 @@
         <img src="https://komarev.com/ghpvc/?username=nsriharsha04&amp;color=0b7285" alt="Visitor count" />
       </div>
     </footer>
+    <script>
+      const themeToggle = document.querySelector(".theme-toggle");
+      const themeIcon = themeToggle.querySelector("i");
+
+      function setTheme(theme) {
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem("theme", theme);
+        const isDay = theme === "day";
+        themeToggle.setAttribute("aria-pressed", String(isDay));
+        themeToggle.setAttribute("aria-label", isDay ? "Switch to night theme" : "Switch to day theme");
+        themeIcon.className = isDay ? "fa-solid fa-moon" : "fa-solid fa-sun";
+      }
+
+      setTheme(document.documentElement.dataset.theme);
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = document.documentElement.dataset.theme === "day" ? "night" : "day";
+        setTheme(currentTheme);
+      });
+    </script>
   </body>
 </html>

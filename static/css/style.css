@@ -588,6 +588,24 @@ footer p {
   margin-bottom: 12px;
 }
 
+.visitor-counter {
+  min-height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visitor-counter img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.visitor-counter span {
+  color: var(--muted);
+  font: 600 0.86rem var(--font-mono);
+}
+
 @media (max-width: 900px) {
   .hero-grid,
   .split-section,
